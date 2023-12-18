@@ -1,0 +1,4 @@
+###
+
+GET http://localhost:8080/hello?name=kc
+Authorization: Basic user c249cb11-aee0-49bc-91da-60ce74592ce9
