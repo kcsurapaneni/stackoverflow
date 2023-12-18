@@ -5,3 +5,7 @@ spring:
 logging:
   level:
     org.springframework.security: trace
+
+server:
+  error:
+    include-message: always
