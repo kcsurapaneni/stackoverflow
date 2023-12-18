@@ -16,7 +16,16 @@ public class CustomSecurityFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         log.error("Coming to CustomSecurityFilter: {}", request.getRequestURI());
-        response.sendError(HttpServletResponse.SC_FORBIDDEN);
+        // sending custom error code and message
+        var errorMessage = """
+                {
+                    "error" : "true",
+                    "code" : "AUTH-1210",
+                    "message" : "custom filter authentication failed"
+                }
+                """;
+        response.sendError(HttpServletResponse.SC_FORBIDDEN, errorMessage);
+
     }
 
 }
